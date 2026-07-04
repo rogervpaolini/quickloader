@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Quick Loader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-form {
+            background-color: var(--light-gray);
+            border: 1px solid var(--medium-gray);
+            padding: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--medium-gray);
+            background-color: var(--white);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: all 300ms ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--dark-gray);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--black);
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 0.875rem;
+            background-color: var(--black);
+            color: var(--white);
+            font-weight: 600;
+            border: 1px solid var(--black);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 300ms ease;
+        }
+
+        .form-submit:hover {
+            background-color: var(--white);
+            color: var(--black);
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .contact-info-box {
+            background-color: var(--white);
+            border: 1px solid var(--medium-gray);
+            padding: 1.5rem;
+            transition: all 300ms ease;
+        }
+
+        .contact-info-box:hover {
+            border-color: var(--black);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .contact-info-box h3 {
+            font-family: var(--font-display);
+            color: var(--black);
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-info-box .divider {
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-box p {
+            margin: 0;
+            color: var(--text-color);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .contact-info-box a {
+            color: var(--black);
+            text-decoration: none;
+            transition: all 300ms ease;
+            font-weight: 600;
+            border-bottom: 1px solid var(--black);
+        }
+
+        .contact-info-box a:hover {
+            color: var(--dark-gray);
+            border-bottom-color: var(--dark-gray);
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Navigation -->
+    <nav class="floating-nav">
+        <div class="nav-brand">
+            <span class="brand-symbol">▪</span>
+            <span class="brand-text">Quick Loader</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-item">Home</a></li>
+            <li><a href="about.html" class="nav-item">About</a></li>
+            <li><a href="contact.html" class="nav-item active">Contact</a></li>
+            <li><a href="privacy-policy.html" class="nav-item">Privacy</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-inner">
+                <h1 class="hero-title">Get In Touch</h1>
+                <p class="hero-subtitle">We're here to help with your moving and furniture preparation questions</p>
+            </div>
+        </section>
+
+        <!-- Article Content -->
+        <article class="article">
+            <div class="content-grid">
+                <section class="grid-item">
+                    <div class="item-header">
+                        <h2>Send Us a Message</h2>
+                        <div class="divider"></div>
+                    </div>
+                    <div class="item-body">
+                        <p>Have questions about preparing your furniture for a move or need expert advice? Fill out the form below and we'll respond within 24 hours.</p>
+
+                        <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="location">Moving Location *</label>
+                                <input type="text" id="location" name="location" placeholder="From - To" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inquiry-type">Inquiry Type *</label>
+                                <select id="inquiry-type" name="inquiry-type" required>
+                                    <option value="">Select an inquiry type</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="furniture">Furniture Preparation</option>
+                                    <option value="packing">Packing Services</option>
+                                    <option value="moving">Moving Logistics</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" placeholder="Tell us about your moving needs and furniture preparation questions..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="form-submit">Send Message</button>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="grid-item">
+                    <div class="item-header">
+                        <h2>Other Ways to Reach Us</h2>
+                        <div class="divider"></div>
+                    </div>
+                    <div class="item-body">
+                        <p>Prefer to contact us directly? Use the following methods:</p>
+                        <div class="contact-info-grid">
+                            <div class="contact-info-box">
+                                <h3>Email</h3>
+                                <div class="divider"></div>
+                                <p>
+                                    <a href="mailto:hello@quickloader.ca">hello@quickloader.ca</a>
+                                </p>
+                            </div>
+                            <div class="contact-info-box">
+                                <h3>Phone</h3>
+                                <div class="divider"></div>
+                                <p>
+                                    <a href="tel:+14165551234">+1 (416) 555-1234</a>
+                                </p>
+                            </div>
+                            <div class="contact-info-box">
+                                <h3>Business Hours</h3>
+                                <div class="divider"></div>
+                                <p>
+                                    Monday - Friday<br>
+                                    8:00 AM - 6:00 PM EST<br>
+                                    Saturday<br>
+                                    9:00 AM - 4:00 PM EST
+                                </p>
+                            </div>
+                            <div class="contact-info-box">
+                                <h3>Response Time</h3>
+                                <div class="divider"></div>
+                                <p>
+                                    We typically respond to all inquiries within 24 business hours. Thank you for choosing Quick Loader.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="grid-item">
+                    <p style="font-size: 0.9rem; color: var(--dark-gray); text-align: center; font-style: italic;">
+                        Your privacy is important to us. Please review our <a href="privacy-policy.html" class="article-link">Privacy Policy</a> to understand how we handle your information.
+                    </p>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Quick Loader</h4>
+                <p>Professional moving and furniture preparation guidance for Canada.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Quick Loader. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            alert('Thank you for your message. Our team will contact you shortly.');
+            form.reset();
+        }
+    </script>
+</body>
+</html>
